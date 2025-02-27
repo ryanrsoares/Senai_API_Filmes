@@ -41,7 +41,7 @@ namespace api_filmes_senai.Controllers
         {
             try
             {
-                Genero filmeBuscado = _filmeRepository.BuscarPorId(id);
+               Filme filmeBuscado = _filmeRepository.BuscarPorId(id);
 
                 return Ok(filmeBuscado);
             }
@@ -96,5 +96,21 @@ namespace api_filmes_senai.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpGet("ListarPorGenero/{id}")]
+        public IActionResult GetByGenero(Guid id)
+        {
+            try
+            {
+                List<Filme> ListaDeFilmePorGenero = _filmeRepository.ListarPorGenero(id);
+
+                return Ok(ListaDeFilmePorGenero);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
     }
 }

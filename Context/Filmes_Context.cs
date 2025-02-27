@@ -4,7 +4,7 @@ namespace api_filmes_senai.Context
 {
     public class Filmes_Context : DbContext
     {
-        public Filmes_Context()
+         public Filmes_Context()
         {
         }
 
@@ -17,9 +17,7 @@ namespace api_filmes_senai.Context
         /// </summary>
         public DbSet<Genero> Genero { get; set; }
         public DbSet<Filme> Filme { get; set; }
-        public object Generos { get; internal set; }
-        public object Filmes { get; internal set; }
-
+        public DbSet<Usuario> Usuario {  get; set; }        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

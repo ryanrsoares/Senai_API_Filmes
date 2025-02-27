@@ -8,7 +8,6 @@ namespace api_filmes_senai.Repositories
     public class FilmeRepository : IFilmeRepository
     {
         private readonly Filmes_Context _context;
-        private bool listaDeFilme;
 
         public FilmeRepository(Filmes_Context context)
         {
@@ -37,17 +36,12 @@ namespace api_filmes_senai.Repositories
             }
         }
 
-        public void Atualizar(Guid id, Genero filme)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Filme BuscarFilmePorId(Guid id)
+        public Filme BuscarPorId(Guid id)
         {
-            try
+             try
             {
-                Filme filmeBuscado = _context.Filme.Find(id)!;
-
+                Filme filmeBuscado = _context.Filme.Find(id);
                 return filmeBuscado;
             }
             catch (Exception)
@@ -141,5 +135,7 @@ namespace api_filmes_senai.Repositories
                 throw;
             }
         }
+
+
     }
 }
