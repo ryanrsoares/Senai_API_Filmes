@@ -60,7 +60,7 @@ namespace api_filmes_senai.Repositories
         {
             try
             {
-                novoUsuario.Senha = Criptografia.GerarHash(novoUsuario.Senha)!;
+                novoUsuario.Senha = Criptografia.GerarHash(novoUsuario.Senha!);
                 _context.Usuario.Add(novoUsuario);
                 _context.SaveChanges();
             }
